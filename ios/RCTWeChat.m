@@ -61,11 +61,11 @@ RCT_EXPORT_MODULE()
     return YES;
 }
 
-RCT_EXPORT_METHOD(registerApp:(NSString *)appid
+RCT_EXPORT_METHOD(registerApp:(NSString *)appid universalLink:(NSString *)universalLink
                   :(RCTResponseSenderBlock)callback)
 {
     self.appId = appid;
-    callback(@[[WXApi registerApp:appid universalLink:@"https://help.wechat.with/app/"] ? [NSNull null] : INVOKE_FAILED]);
+    callback(@[[WXApi registerApp:appid universalLink:universalLink] ? [NSNull null] : INVOKE_FAILED]);
 }
 
 RCT_EXPORT_METHOD(isWXAppInstalled:(RCTResponseSenderBlock)callback)
